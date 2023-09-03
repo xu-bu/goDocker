@@ -1,0 +1,17 @@
+# 使用一个基础镜像
+FROM golang:1.17
+
+# 设置工作目录
+WORKDIR /app
+
+# 将整个项目复制到容器中
+COPY . .
+
+# 构建 Go 应用程序
+RUN go build -o main .
+
+# 暴露端口
+EXPOSE 10
+
+# 启动应用程序
+CMD ["./main"]
